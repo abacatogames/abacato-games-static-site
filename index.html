@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abacato Games</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #538D4E;
+            text-align: center;
+            padding: 20px;
+        }
+
+        img {
+            border-radius: 0;
+            background: transparent;
+            transition: transform 0.3s;
+        }
+
+        .logo {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .name {
+            max-width: 800px;
+            width: 100%;
+        }
+
+
+
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        .links {
+            margin-top: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            font-size: 2.em;
+        }
+
+        .links a {
+            display: inline-block;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-family: monospace;
+            font-weight: bold;
+            line-height: 1.2;
+            font-size: 24px;
+            background: linear-gradient(45deg, #3d0c02, #5a3f24);
+            border-radius: 8px;
+            transition: transform 0.2s, background 0.3s;
+            color: #eeebe7;
+        }
+
+        .links a:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(45deg, #3d0c02, #a38259);
+        }
+
+        @media (max-width: 500px) {
+            img {
+                max-width: 90%;
+            }
+
+            .links a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        footer {
+            color : #3d0c02;
+            position: fixed;
+            width: 100%;
+            height: 2.rem;
+            bottom: 0px;
+            left: 0px;
+            font-family: monospace;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <img class="logo" src="logo.png">
+    <img class="name" src="name.png">
+    <div class="links">
+        <a href="https://where-is-wordo.abacatogames.com/" target="_blank">Play Where is Wordo now!</a>
+    </div>
+
+    <footer>
+        <p>© 2026 Abacato Games</p>
+    </footer>
+
+</body>
+</html>
