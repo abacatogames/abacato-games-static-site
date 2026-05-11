@@ -3,108 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abacato Games</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            min-height: 100vh;
-            background: #538D4E;
-            text-align: center;
-            padding: 20px;
-        }
-
-        img {
-            border-radius: 0;
-            background: transparent;
-            transition: transform 0.3s;
-        }
-
-        .logo {
-            max-width: 500px;
-            width: 100%;
-        }
-
-        .name {
-            max-width: 800px;
-            width: 100%;
-        }
-
-
-
-
-        img:hover {
-            transform: scale(1.05);
-        }
-
-        .links {
-            margin-top: 36px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            font-size: 2em;
-        }
-
-        .links a {
-            display: inline-block;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-family: monospace;
-            font-weight: bold;
-            line-height: 1.2;
-            font-size: 24px;
-            background: linear-gradient(45deg, #3d0c02, #5a3f24);
-            border-radius: 8px;
-            transition: transform 0.2s, background 0.3s;
-            color: #eeebe7;
-        }
-
-        .links a:hover {
-            transform: translateY(-3px);
-            background: linear-gradient(45deg, #3d0c02, #a38259);
-        }
-
-        @media (max-width: 500px) {
-            img {
-                max-width: 90%;
-            }
-
-            .links a {
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        footer {
-            color: #3d0c02;
-            width: 100%;
-            margin-top: auto;
-            padding: 12px 0;
-            font-family: monospace;
-            font-size: 16px;
-        }
-    </style>
+    <title>Abacato Games — Cozy games from a small studio</title>
+    <meta name="description" content="A tiny indie studio making cozy little games. Home of Where is Wordo?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="grain" aria-hidden="true"></div>
 
-    <img class="logo" src="logo.png">
-    <img class="name" src="name.png">
-    <div class="links">
-        <a href="https://where-is-wordo.abacatogames.com/" target="_blank">Play Where is Wordo now!</a>
+    <div class="sky" aria-hidden="true">
+        <div class="sun">
+            <div class="sun__core"></div>
+            <div class="sun__halo"></div>
+        </div>
+
+        <svg class="cloud cloud--1" viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#FDFEFF">
+                <ellipse cx="70" cy="70" rx="58" ry="36"/>
+                <ellipse cx="135" cy="55" rx="68" ry="44"/>
+                <ellipse cx="200" cy="72" rx="54" ry="32"/>
+            </g>
+        </svg>
+
+        <svg class="cloud cloud--2" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#FDFEFF">
+                <ellipse cx="55" cy="55" rx="45" ry="28"/>
+                <ellipse cx="110" cy="45" rx="52" ry="34"/>
+                <ellipse cx="165" cy="58" rx="42" ry="25"/>
+            </g>
+        </svg>
+
+        <svg class="cloud cloud--3" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#FDFEFF">
+                <ellipse cx="50" cy="50" rx="42" ry="26"/>
+                <ellipse cx="105" cy="40" rx="48" ry="30"/>
+                <ellipse cx="155" cy="52" rx="38" ry="22"/>
+            </g>
+        </svg>
+
+        <svg class="hill hill--back" viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 140 Q260 60 540 110 T1020 90 T1440 120 V220 H0 Z" fill="#A8D5A2"/>
+        </svg>
+        <svg class="hill hill--front" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 170 Q200 100 460 140 T920 130 T1440 160 V200 H0 Z" fill="#7FB97A"/>
+        </svg>
     </div>
 
-    <footer>
-        <p>© 2026 Abacato Games</p>
-    </footer>
+    <header class="masthead">
+        <img class="logo" src="logo.png" alt="Abacato Games logo">
+        <h1 class="wordmark">Abacato <em>Games</em></h1>
+        <p class="tagline">Cozy little games from a tiny studio.</p>
+    </header>
 
+    <main>
+        <details class="section section--games" open>
+            <summary class="section__head">
+                <span class="section__heading">Games</span>
+                <span class="chevron" aria-hidden="true"></span>
+                <span class="visually-hidden section__hint" data-open="Hide">Show</span>
+            </summary>
+            <div class="section__body">
+                <div class="games">
+                    <a class="card card--play" href="https://where-is-wordo.abacatogames.com/" target="_blank" rel="noopener">
+                        <span class="card__tag card__tag--live">Now playing</span>
+                        <h3>Where is <em>Wordo?</em></h3>
+                        <p>A playful word-hunting puzzle. Track down the hidden word before your guesses run out.</p>
+                        <span class="card__cta">Play now <span class="card__cta-arrow">→</span></span>
+                    </a>
+
+                    <div class="card card--soon" aria-label="Upcoming game">
+                        <span class="card__tag">In the workshop</span>
+                        <h3>Something cozy is brewing<em>…</em></h3>
+                        <p>Our next little world is taking shape. Drop by again soon.</p>
+                        <span class="card__cta card__cta--ghost">Coming soon</span>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <section class="section section--contact" aria-labelledby="contact-head">
+            <div class="section__head section__head--static">
+                <span id="contact-head" class="section__heading">Get in touch</span>
+            </div>
+            <div class="section__body">
+                <div class="contact">
+                    <p>Have a question, an idea, or want to playtest with us? Drop us a note.</p>
+                    <a class="contact__cta" href="mailto:contact@abacatogames.com">
+                        <span class="contact__cta-icon" aria-hidden="true">✉</span>
+                        contact@abacatogames.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with care · © 2026 Abacato Games</p>
+    </footer>
 </body>
 </html>
