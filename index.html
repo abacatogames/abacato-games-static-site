@@ -58,11 +58,10 @@
     </header>
 
     <main>
-        <details class="section section--games" open>
+        <details class="section section--games">
             <summary class="section__head">
                 <span class="section__heading">Games</span>
                 <span class="chevron" aria-hidden="true"></span>
-                <span class="visually-hidden section__hint" data-open="Hide">Show</span>
             </summary>
             <div class="section__body">
                 <div class="games">
@@ -79,14 +78,22 @@
                         <p>Our next little world is taking shape. Drop by again soon.</p>
                         <span class="card__cta card__cta--ghost">Coming soon</span>
                     </div>
+
+                    <div class="card card--soon" aria-label="Upcoming game">
+                        <span class="card__tag">On the horizon</span>
+                        <h3>A tiny new <em>experiment</em></h3>
+                        <p>Early sketches and silly ideas. More to share once it finds its shape.</p>
+                        <span class="card__cta card__cta--ghost">Stay tuned</span>
+                    </div>
                 </div>
             </div>
         </details>
 
-        <section class="section section--contact" aria-labelledby="contact-head">
-            <div class="section__head section__head--static">
-                <span id="contact-head" class="section__heading">Get in touch</span>
-            </div>
+        <details class="section section--contact">
+            <summary class="section__head">
+                <span class="section__heading">Get in touch</span>
+                <span class="chevron" aria-hidden="true"></span>
+            </summary>
             <div class="section__body">
                 <div class="contact">
                     <p>Have a question, an idea, or want to playtest with us? Drop us a note.</p>
@@ -96,7 +103,7 @@
                     </a>
                 </div>
             </div>
-        </section>
+        </details>
     </main>
 
     <footer>

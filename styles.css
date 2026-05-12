@@ -41,6 +41,10 @@
     padding: 0;
 }
 
+html {
+    interpolate-size: allow-keywords;
+}
+
 html, body { min-height: 100%; }
 
 body {
@@ -245,15 +249,29 @@ main {
     width: 100%;
 }
 
-details.section {
-    /* native disclosure widget; reset default marker */
-}
 details.section > summary {
     list-style: none;
     cursor: pointer;
 }
 details.section > summary::-webkit-details-marker {
     display: none;
+}
+
+/* Smooth expand/collapse — modern browsers w/ ::details-content support.
+   Older browsers fall back to instant native toggle. */
+details.section::details-content {
+    block-size: 0;
+    overflow: clip;
+    opacity: 0;
+    transition:
+        block-size 0.4s ease,
+        opacity 0.3s ease,
+        content-visibility 0.4s allow-discrete;
+}
+
+details.section[open]::details-content {
+    block-size: auto;
+    opacity: 1;
 }
 
 .section__head {
@@ -279,15 +297,6 @@ details.section > .section__head:hover {
 details.section > .section__head:focus-visible {
     outline: 3px solid var(--accent-red);
     outline-offset: 4px;
-}
-
-.section__head--static {
-    cursor: default;
-}
-
-.section__head--static:hover {
-    background: rgba(253, 254, 255, 0.55);
-    transform: none;
 }
 
 .section__heading {
@@ -343,7 +352,7 @@ details[open] > .section__head .chevron {
 /* --- Games grid --- */
 .games {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: clamp(20px, 2.8vw, 36px);
     width: 100%;
 }
@@ -376,6 +385,7 @@ details[open] > .section__head .chevron {
 
 .card--play       { transform: rotate(-1.1deg); }
 .card--soon       { transform: rotate(1deg); background: var(--paper-warm); }
+.card--soon:nth-of-type(3) { transform: rotate(-0.6deg); }
 
 .card--play:hover {
     transform: rotate(0deg) translateY(-6px);
@@ -587,36 +597,16 @@ footer {
 .wordmark { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.18s both; }
 .tagline  { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.32s both; }
 .section--games > .section__head    { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.42s both; }
-.card--play { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.52s both; }
-.card--soon { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.60s both; }
-.section--contact > .section__head  { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.68s both; }
-.contact    { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.76s both; }
-footer    { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.88s both; }
+.section--contact > .section__head  { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.54s both; }
+footer    { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.66s both; }
 
 @keyframes rise {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-.card--play { animation-name: rise-tilt-left; }
-.card--soon { animation-name: rise-tilt-right; }
-
-@keyframes rise-tilt-left {
-    from { opacity: 0; transform: translateY(28px) rotate(-1.1deg); }
-    to   { opacity: 1; transform: translateY(0)    rotate(-1.1deg); }
-}
-
-@keyframes rise-tilt-right {
-    from { opacity: 0; transform: translateY(28px) rotate(1deg); }
-    to   { opacity: 1; transform: translateY(0)    rotate(1deg); }
-}
-
 /* --- Responsive --- */
 @media (max-width: 720px) {
-    .games {
-        grid-template-columns: 1fr;
-    }
-
     .sun {
         top: 28px;
         right: 24px;
@@ -627,17 +617,9 @@ footer    { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.88s both; }
     .cloud--2 { display: none; }
 
     .card--play,
-    .card--soon {
+    .card--soon,
+    .card--soon:nth-of-type(3) {
         transform: rotate(0);
-    }
-
-    @keyframes rise-tilt-left {
-        from { opacity: 0; transform: translateY(24px) rotate(0); }
-        to   { opacity: 1; transform: translateY(0)    rotate(0); }
-    }
-    @keyframes rise-tilt-right {
-        from { opacity: 0; transform: translateY(24px) rotate(0); }
-        to   { opacity: 1; transform: translateY(0)    rotate(0); }
     }
 
     .card--play:hover { transform: translateY(-4px); }
