@@ -201,12 +201,14 @@ body {
 .logo {
     width: clamp(140px, 18vw, 220px);
     height: auto;
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    filter: drop-shadow(0 10px 20px rgba(27, 42, 65, 0.18));
+    cursor: pointer;
+    will-change: transform;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 10px 24px rgba(27, 42, 65, 0.32));
 }
 
 .logo:hover {
-    transform: rotate(-4deg) scale(1.05);
+    transform: rotate(-3deg) scale(1.05);
 }
 
 .wordmark {
@@ -218,6 +220,12 @@ body {
     color: var(--ink);
     text-shadow: 3px 3px 0 rgba(217, 83, 79, 0.35);
     text-transform: uppercase;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: inline-block;
+}
+
+.wordmark:hover {
+    transform: scale(1.03);
 }
 
 .wordmark em {
@@ -580,8 +588,8 @@ footer {
 footer    { animation: rise 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) 0.66s both; }
 
 @keyframes rise {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; translate: 0 28px; }
+    to   { opacity: 1; translate: 0 0; }
 }
 
 /* --- Responsive --- */
